@@ -1,0 +1,722 @@
+<title>TNT Muscle Lindora</title>
+<meta name="description" content="Estudio privado de entrenamiento de fuerza en Lindora, Costa Rica. Sistema TNT 6·4·50: 6 movimientos, 4 semanas por ciclo, 50 minutos por sesión.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --ink: #0B0B0C;
+    --plate: #141416;
+    --plate-2: #1B1B1E;
+    --steel: #2A2A2F;
+    --chalk: #F2EEE8;
+    --ash: #A39D95;
+    --tnt: #FF5A1F;
+    --tnt-deep: #D9430F;
+    --on-tnt: #120804;
+    --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+    --label: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --wrap: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body {
+    background: var(--ink);
+    color: var(--chalk);
+    font: 400 17px/1.6 var(--body);
+    padding-inline: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--tnt); outline-offset: 3px; }
+  .wrap { max-width: var(--wrap); margin-inline: auto; }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 900; line-height: .95; text-transform: uppercase; letter-spacing: .005em; text-wrap: balance; margin: 0; }
+  h2 { font-size: clamp(2.3rem, 5.4vw, 4.1rem); }
+  h3 { font-size: 1.55rem; font-weight: 800; line-height: 1.05; }
+  p { margin: 0; max-width: 64ch; }
+  .eyebrow { font: 600 .82rem/1 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--tnt); }
+  .muted { color: var(--ash); }
+  .accent { color: var(--tnt); }
+  .stack { display: flex; flex-direction: column; gap: 18px; }
+  .lead { font-size: 1.15rem; color: var(--chalk); }
+
+  /* Botones */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font: 700 1rem/1 var(--label); letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+    padding: 17px 26px; border-radius: 4px; border: 2px solid var(--tnt);
+    background: var(--tnt); color: var(--on-tnt); transition: background .2s, transform .2s;
+  }
+  .btn:hover { background: var(--tnt-deep); border-color: var(--tnt-deep); transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--chalk); border-color: var(--steel); }
+  .btn.ghost:hover { border-color: var(--chalk); background: transparent; }
+  .btn .arr { font-family: var(--body); font-weight: 600; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Navegación */
+  .nav {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    margin-inline: -20px; padding: 12px 20px;
+    background: color-mix(in srgb, var(--ink) 88%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--steel);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .logo { font: 900 1.7rem/1 var(--display); text-decoration: none; letter-spacing: .02em; }
+  .logo span { color: var(--tnt); }
+  .nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { font: 600 .85rem/1 var(--label); letter-spacing: .14em; text-decoration: none; color: var(--ash); }
+  .nav ul a:hover { color: var(--chalk); }
+  .nav .btn { padding: 12px 18px; font-size: .88rem; }
+  .menu { display: none; }
+  @media (max-width: 980px) {
+    .nav ul { display: none; }
+    .menu { display: block; position: relative; }
+    .menu summary { list-style: none; cursor: pointer; font: 700 .85rem/1 var(--label); letter-spacing: .14em; padding: 12px 14px; border: 1px solid var(--steel); border-radius: 4px; }
+    .menu summary::-webkit-details-marker { display: none; }
+    .menu nav { position: absolute; right: 0; top: calc(100% + 8px); background: var(--plate); border: 1px solid var(--steel); border-radius: 4px; padding: 8px; display: grid; min-width: 210px; }
+    .menu nav a { padding: 12px; text-decoration: none; font: 600 .95rem/1 var(--label); letter-spacing: .12em; }
+    .menu nav a:hover { color: var(--tnt); }
+  }
+  @media (max-width: 520px) { .nav .btn { display: none; } }
+
+  section { padding-block: clamp(72px, 10vw, 128px); border-bottom: 1px solid var(--steel); }
+
+  /* Portada */
+  .hero { padding-block: clamp(48px, 7vw, 96px) clamp(56px, 8vw, 104px); position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+  .hero h1 { font-size: clamp(4.2rem, 11vw, 9.2rem); line-height: .82; }
+  .hero h1 .accent { display: block; }
+  .tagline { font: 800 clamp(1.3rem, 2.4vw, 1.8rem)/1 var(--display); letter-spacing: .22em; text-transform: uppercase; margin-top: 18px; }
+  .hero .lead { margin-top: 26px; font-size: 1.2rem; }
+  .perks { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 32px; padding: 0; list-style: none; }
+  .perks li { font: 600 .9rem/1 var(--label); letter-spacing: .06em; padding: 10px 12px; border: 1px solid var(--steel); border-radius: 3px; color: var(--chalk); background: var(--plate); }
+  .perks li b { color: var(--tnt); font-weight: 700; }
+
+  /* Bloque 6·4·50 */
+  .system-card { border: 1px solid var(--steel); background: var(--plate); border-radius: 6px; overflow: hidden; }
+  .system-card header { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 22px; border-bottom: 1px solid var(--steel); gap: 12px; flex-wrap: wrap; }
+  .system-card header strong { font: 800 1.25rem/1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+  .num-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 22px; padding: 20px 22px; border-bottom: 1px solid var(--steel); }
+  .num-row:last-child { border-bottom: 0; }
+  .num { font: 900 clamp(4.4rem, 8vw, 6.4rem)/.8 var(--display); color: var(--tnt); min-width: 1.6ch; text-align: center; font-variant-numeric: tabular-nums; }
+  .num-row b { display: block; font: 700 1.2rem/1.1 var(--label); letter-spacing: .12em; text-transform: uppercase; }
+  .num-row span { color: var(--ash); font-size: .98rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    .num-row { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+    .num-row:nth-child(3) { animation-delay: .12s; }
+    .num-row:nth-child(4) { animation-delay: .24s; }
+    @keyframes rise { from { transform: translateY(14px); opacity: .25; } to { transform: none; opacity: 1; } }
+  }
+
+  /* Secciones de texto */
+  .split { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 88px); align-items: start; }
+  .split .stack p { font-size: 1.08rem; }
+  .pull { font: 800 clamp(1.6rem, 3vw, 2.3rem)/1.1 var(--display); text-transform: uppercase; border-left: 4px solid var(--tnt); padding-left: 18px; margin-top: 10px; text-wrap: balance; }
+  .triad { display: grid; gap: 4px; margin-top: 6px; }
+  .triad p { font: 700 1.3rem/1.25 var(--label); letter-spacing: .04em; text-transform: uppercase; }
+  .ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .ticks li { display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: baseline; }
+  .ticks li::before { content: ""; width: 10px; height: 10px; background: var(--tnt); transform: translateY(-1px); }
+  .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; }
+
+  /* El sistema */
+  .sys-head { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; margin-bottom: 56px; }
+  .pillar { display: grid; grid-template-columns: 180px 1fr; gap: clamp(24px, 4vw, 56px); padding-block: 44px; border-top: 1px solid var(--steel); }
+  .pillar .big { font: 900 clamp(5rem, 11vw, 9rem)/.8 var(--display); color: var(--tnt); }
+  .pillar .big small { display: block; font: 700 1rem/1 var(--label); letter-spacing: .18em; color: var(--chalk); margin-top: 14px; }
+  .moves { list-style: none; padding: 0; margin: 22px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; counter-reset: mv; }
+  .moves li { counter-increment: mv; background: var(--plate); border: 1px solid var(--steel); border-radius: 4px; padding: 14px 16px; font: 700 1.2rem/1 var(--label); letter-spacing: .05em; text-transform: uppercase; display: flex; gap: 12px; align-items: baseline; }
+  .moves li::before { content: counter(mv); font-family: var(--display); color: var(--tnt); font-size: 1.4rem; }
+  .weeks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 22px 0; }
+  .week { background: var(--plate); border: 1px solid var(--steel); border-radius: 4px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .week .w { font: 700 .8rem/1 var(--label); letter-spacing: .2em; color: var(--tnt); text-transform: uppercase; }
+  .week p { font-weight: 500; line-height: 1.35; }
+  .timeline { margin: 26px 0 8px; }
+  .bar { display: flex; height: 54px; border-radius: 4px; overflow: hidden; gap: 3px; }
+  .bar div { display: flex; align-items: center; justify-content: center; font: 700 .95rem/1 var(--label); letter-spacing: .06em; background: var(--plate-2); border: 1px solid var(--steel); }
+  .bar .main { background: var(--tnt); color: var(--on-tnt); border-color: var(--tnt); }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; padding: 0; list-style: none; font-size: .95rem; color: var(--ash); }
+  .legend b { color: var(--chalk); font-weight: 600; }
+  .note { font-size: .85rem; color: var(--ash); margin-top: 10px; }
+  .closer { font: 900 clamp(1.8rem, 4vw, 3rem)/1 var(--display); text-transform: uppercase; margin-top: 48px; }
+
+  /* Tarjetas de beneficio */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--steel); border: 1px solid var(--steel); border-radius: 6px; overflow: hidden; margin-top: 48px; }
+  .cell { background: var(--ink); padding: 28px 26px; display: flex; flex-direction: column; gap: 10px; }
+  .cell h3 { font-size: 1.35rem; }
+  .cell p { color: var(--ash); font-size: 1rem; }
+
+  /* Perfiles */
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .profile { background: var(--plate); border: 1px solid var(--steel); border-radius: 6px; padding: clamp(26px, 4vw, 44px); display: flex; flex-direction: column; gap: 20px; }
+  .profile .sign { font: 900 clamp(1.5rem, 2.6vw, 2rem)/1.05 var(--display); text-transform: uppercase; color: var(--tnt); margin-top: auto; padding-top: 8px; }
+
+  /* Pasos */
+  .steps { list-style: none; padding: 0; margin: 48px 0 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; counter-reset: st; border-top: 1px solid var(--steel); }
+  .steps li { counter-increment: st; padding: 26px 24px 26px 0; border-bottom: 1px solid var(--steel); display: grid; grid-template-columns: 56px 1fr; gap: 6px 14px; }
+  .steps li::before { content: counter(st); grid-row: span 2; font: 900 3.2rem/.8 var(--display); color: var(--tnt); }
+  .steps h3 { font-size: 1.25rem; }
+  .steps p { color: var(--ash); font-size: .98rem; }
+  .help { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; }
+
+  /* Horarios */
+  .sched { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .slot-card { background: var(--plate); border: 1px solid var(--steel); border-radius: 6px; padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+  .slot-card .k { font: 700 .8rem/1 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--tnt); }
+  .times { display: flex; flex-wrap: wrap; gap: 8px; }
+  .time { font: 600 .92rem/1 var(--label); letter-spacing: .06em; padding: 10px 12px; border: 1px dashed var(--ash); border-radius: 3px; color: var(--ash); }
+  .time b { color: var(--chalk); font-weight: 700; margin-right: 6px; }
+
+  /* Planes */
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; }
+  .plan { background: var(--plate); border: 1px solid var(--steel); border-radius: 6px; padding: clamp(26px, 4vw, 40px); display: flex; flex-direction: column; gap: 22px; }
+  .plan.pro { border-color: var(--tnt); box-shadow: 0 0 0 1px var(--tnt) inset; }
+  .plan .tag { align-self: flex-start; font: 700 .75rem/1 var(--label); letter-spacing: .18em; text-transform: uppercase; background: var(--tnt); color: var(--on-tnt); padding: 7px 10px; border-radius: 3px; }
+  .plan h3 { font-size: 2rem; }
+  .price { display: flex; align-items: baseline; gap: 10px; }
+  .price strong { font: 900 4.4rem/.85 var(--display); font-variant-numeric: tabular-nums; }
+  .price span { font: 600 1rem/1 var(--label); letter-spacing: .1em; color: var(--ash); text-transform: uppercase; }
+  .plan .btn { margin-top: auto; }
+  .plans > *, .split > *, .duo > *, .hero-grid > *, .pillar > *, .sys-head > * { min-width: 0; }
+  .price { flex-wrap: wrap; }
+  .btn { text-align: center; }
+  @media (max-width: 600px) { .price strong { font-size: 3.6rem; } }
+  .fine { font-size: .88rem; color: var(--ash); margin-top: 18px; }
+
+  /* Fundadores */
+  .founders { background: var(--tnt); color: var(--on-tnt); margin-inline: -20px; padding-inline: 20px; border-bottom: 0; }
+  .founders .eyebrow { color: var(--on-tnt); }
+  .founders .split p { color: var(--on-tnt); }
+  .founders .ticks li::before { background: var(--on-tnt); }
+  .founders .ticks li { font-weight: 600; font-size: 1.05rem; }
+  .founders .btn { background: var(--on-tnt); color: var(--chalk); border-color: var(--on-tnt); }
+  .founders .btn:hover { background: #000; border-color: #000; }
+  .founders small { display: block; margin-top: 14px; font-size: .85rem; opacity: .8; }
+
+  /* Preguntas */
+  .faq { margin-top: 40px; border-top: 1px solid var(--steel); }
+  .faq details { border-bottom: 1px solid var(--steel); }
+  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; padding: 22px 0; font: 700 1.2rem/1.25 var(--label); letter-spacing: .03em; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font: 900 1.6rem/1 var(--display); color: var(--tnt); transition: transform .2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq .ans { padding: 0 0 24px; color: var(--ash); display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+
+  /* Cierre */
+  .final { text-align: left; border-bottom: 0; }
+  .final h2 { font-size: clamp(2.8rem, 8vw, 6.4rem); line-height: .86; }
+  .final .formula { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 36px 0; font: 700 1.25rem/1 var(--label); letter-spacing: .12em; text-transform: uppercase; }
+  .final .formula b { color: var(--tnt); font: 900 2rem/1 var(--display); margin-right: 6px; }
+  footer { padding-block: 32px 48px; border-top: 1px solid var(--steel); color: var(--ash); font: 600 .9rem/1.5 var(--label); letter-spacing: .12em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .ph { color: var(--ash); font-size: .8rem; letter-spacing: .04em; text-transform: none; font-family: var(--body); }
+
+  @media (max-width: 900px) {
+    .hero-grid, .split, .sys-head, .duo, .plans { grid-template-columns: 1fr; }
+    .grid-3, .sched { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .weeks { grid-template-columns: 1fr 1fr; }
+    .pillar { grid-template-columns: 1fr; gap: 18px; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .grid-3, .sched, .steps, .cols-2 { grid-template-columns: 1fr; }
+    .moves { grid-template-columns: 1fr 1fr; }
+    .bar div { font-size: .78rem; }
+    .num-row { gap: 16px; padding: 16px 18px; }
+  }
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#inicio">TNT <span>MUSCLE</span></a>
+    <ul>
+      <li><a href="#sistema">EL SISTEMA</a></li>
+      <li><a href="#beneficios">BENEFICIOS</a></li>
+      <li><a href="#experiencia">EXPERIENCIA</a></li>
+      <li><a href="#horarios">HORARIOS</a></li>
+      <li><a href="#planes">PLANES</a></li>
+      <li><a href="#preguntas">PREGUNTAS</a></li>
+    </ul>
+    <div class="btns">
+      <details class="menu">
+        <summary>MENÚ</summary>
+        <nav>
+          <a href="#sistema">El sistema</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#experiencia">Experiencia</a>
+          <a href="#horarios">Horarios</a>
+          <a href="#planes">Planes</a>
+          <a href="#preguntas">Preguntas</a>
+        </nav>
+      </details>
+      <a class="btn" href="#planes">Comenzar ahora</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 1 · Portada -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Estudio privado de fuerza · Lindora, Costa Rica</p>
+        <h1 style="margin-top:18px">TNT <span class="accent">Muscle</span></h1>
+        <p class="tagline">Fuerza con propósito.</p>
+        <p class="lead">Un estudio privado de entrenamiento de fuerza para personas que quieren rendir más, conservar su capacidad física y entrenar sin multitudes.</p>
+        <ul class="perks">
+          <li><b>Máx. 5</b> personas por hora</li>
+          <li>Programación lunes a sábado</li>
+          <li>Acceso <b>24/7</b></li>
+          <li>Aire acondicionado</li>
+          <li>Parqueo gratuito con seguridad</li>
+          <li>Ducha con agua caliente</li>
+        </ul>
+        <div class="btns">
+          <a class="btn" href="#como-funciona">Crear mi cuenta <span class="arr">→</span></a>
+          <a class="btn ghost" href="#sistema">Conocer el sistema</a>
+        </div>
+      </div>
+
+      <aside class="system-card" aria-label="Sistema TNT 6·4·50">
+        <header>
+          <strong>Sistema TNT 6·4·50</strong>
+          <span class="eyebrow">Método propio</span>
+        </header>
+        <div class="num-row"><div class="num">6</div><div><b>Movimientos</b><span>fundamentales de fuerza.</span></div></div>
+        <div class="num-row"><div class="num">4</div><div><b>Semanas</b><span>por ciclo de progresión.</span></div></div>
+        <div class="num-row"><div class="num">50</div><div><b>Minutos</b><span>por sesión, de principio a fin.</span></div></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 2 · El problema -->
+  <section id="problema">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">El problema</p>
+        <h2>Usted ya entrena resistencia. <span class="accent">¿Pero está construyendo fuerza?</span></h2>
+      </div>
+      <div class="stack">
+        <p>Correr, pedalear, nadar o practicar trail desarrolla su capacidad cardiovascular. Sin embargo, para producir potencia, mantener una técnica eficiente y tolerar mejor las cargas de entrenamiento, su cuerpo también necesita fuerza.</p>
+        <p>Y después de los 35 años, conservar la fuerza deja de ser solamente una cuestión estética.</p>
+        <p>Significa mantener músculo, estabilidad, autonomía y capacidad para continuar entrenando, trabajando y viviendo con intensidad.</p>
+        <p class="pull">Su resistencia lo lleva lejos. Su fuerza le permite seguir avanzando.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Qué es TNT Muscle -->
+  <section id="experiencia">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Qué es TNT Muscle</p>
+        <h2>No es un gimnasio tradicional.</h2>
+      </div>
+      <div class="stack">
+        <p class="lead">TNT Muscle es un estudio boutique especializado exclusivamente en fuerza.</p>
+        <p>Aquí no encontrará salones llenos, rutinas improvisadas ni máquinas ocupadas durante horas.</p>
+        <p>Encontrará un sistema claro, programación semanal, equipo especializado y un ambiente privado diseñado para entrenar con concentración.</p>
+        <div class="triad">
+          <p>Cada sesión tiene un objetivo.</p>
+          <p>Cada bloque tiene una progresión.</p>
+          <p class="accent">Cada minuto tiene un propósito.</p>
+        </div>
+        <p class="pull">Máximo cinco personas entrenando por hora.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Origen -->
+  <section id="origen">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">De dónde nace la idea</p>
+        <h2>TNT Muscle nace de una necesidad real.</h2>
+      </div>
+      <div class="stack">
+        <p>Muchos atletas de endurance dedican numerosas horas a correr, pedalear o nadar, pero dejan la fuerza en segundo plano por falta de tiempo, conocimiento o una programación adecuada.</p>
+        <p>Al mismo tiempo, muchos profesionales mayores de 35 años quieren recuperar fuerza y músculo, pero no desean entrenar en un gimnasio masivo ni pasar dos horas haciendo una rutina complicada.</p>
+        <p><b>TNT Muscle nace para unir esas dos necesidades:</b></p>
+        <ul class="ticks">
+          <li>Entrenar fuerza de manera eficiente.</li>
+          <li>Seguir una programación clara.</li>
+          <li>Completar cada sesión en menos de una hora.</li>
+          <li>Entrenar en un ambiente privado y controlado.</li>
+          <li>Progresar sin abandonar el deporte ni la vida profesional.</li>
+        </ul>
+        <p class="pull">Creamos un lugar donde la fuerza deja de ser un complemento improvisado y se convierte en un sistema.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · El sistema -->
+  <section id="sistema">
+    <div class="wrap">
+      <div class="sys-head">
+        <div class="stack">
+          <p class="eyebrow">El sistema</p>
+          <h2>¿Qué es el Sistema <span class="accent">TNT 6·4·50</span>?</h2>
+        </div>
+        <p class="muted">Una estructura simple de recordar y exigente de ejecutar. Los movimientos principales permanecen; las combinaciones, cargas y progresiones cambian.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="big">6<small>Movimientos</small></div>
+        <div>
+          <p>El sistema se construye alrededor de seis patrones fundamentales de fuerza:</p>
+          <ol class="moves">
+            <li>Back squat</li>
+            <li>Bench press</li>
+            <li>Deadlift</li>
+            <li>Push press</li>
+            <li>Pull-ups</li>
+            <li>Dips</li>
+          </ol>
+          <div class="stack">
+            <p>Estos movimientos entrenan las principales capacidades del cuerpo: empujar, halar, levantar, estabilizar y producir fuerza.</p>
+            <p>La programación también incorpora variaciones y ejercicios complementarios con barras, mancuernas y peso corporal.</p>
+            <p>Por eso, los entrenamientos no son repetitivos. Los movimientos principales permanecen, pero las combinaciones, cargas y progresiones cambian.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="big">4<small>Semanas por ciclo</small></div>
+        <div>
+          <p>La programación se desarrolla en bloques mensuales de cuatro semanas. Cada semana cumple una función dentro del proceso:</p>
+          <div class="weeks">
+            <div class="week"><span class="w">Semana 1</span><p>Construcción técnica y aumento progresivo de cargas.</p></div>
+            <div class="week"><span class="w">Semana 2</span><p>Desarrollo de volumen y control.</p></div>
+            <div class="week"><span class="w">Semana 3</span><p>Trabajo de mayor intensidad.</p></div>
+            <div class="week"><span class="w">Semana 4</span><p>Consolidación y recuperación.</p></div>
+          </div>
+          <p class="muted">La distribución puede cambiar entre ciclos para mantener la progresión, evitar la monotonía y ofrecer nuevos estímulos.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="big">50<small>Minutos por sesión</small></div>
+        <div>
+          <p>Cada entrenamiento está diseñado para completarse en aproximadamente 50 minutos. Una sesión puede incluir:</p>
+          <div class="timeline" aria-label="Ejemplo de distribución de una sesión de 50 minutos">
+            <div class="bar">
+              <div style="flex:8">Calent.</div>
+              <div style="flex:10">Series</div>
+              <div class="main" style="flex:15">Principal</div>
+              <div style="flex:12">Compl.</div>
+              <div style="flex:5">Reg.</div>
+            </div>
+            <ul class="legend">
+              <li><b>Calentamiento</b> y movilidad</li>
+              <li><b>Series progresivas</b> con cargas livianas</li>
+              <li><b>Movimiento principal</b> de fuerza</li>
+              <li><b>Ejercicios complementarios</b></li>
+              <li><b>Registro</b> de resultados</li>
+            </ul>
+            <p class="note">Distribución de referencia. Cada sesión se ajusta al objetivo de la semana.</p>
+          </div>
+          <p class="pull">No se trata de hacer más ejercicios. Se trata de hacer el trabajo correcto.</p>
+        </div>
+      </div>
+
+      <p class="closer">Seis movimientos. Cuatro semanas. <span class="accent">Cincuenta minutos.</span></p>
+    </div>
+  </section>
+
+  <!-- 6 · Fuerza y salud hormonal -->
+  <section id="salud">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Fuerza y testosterona</p>
+        <h2>Fuerza, músculo y salud hormonal.</h2>
+      </div>
+      <div class="stack">
+        <p>El entrenamiento de fuerza con cargas progresivas genera un estímulo neuromuscular y metabólico importante.</p>
+        <p>Los ejercicios multiarticulares pueden favorecer la respuesta hormonal aguda del organismo y contribuyen al mantenimiento de la masa muscular, la fuerza y una composición corporal saludable.</p>
+        <p class="muted">TNT Muscle no promete aumentar permanentemente la testosterona ni sustituye una evaluación médica. Nuestro propósito es crear las condiciones correctas para que su cuerpo sea más fuerte, funcional y resistente.</p>
+        <p>Especialmente después de los 35 años, entrenar fuerza de manera consistente puede ayudarle a conservar:</p>
+        <ul class="ticks cols-2">
+          <li>Masa muscular.</li>
+          <li>Capacidad física.</li>
+          <li>Densidad ósea.</li>
+          <li>Potencia.</li>
+          <li>Autonomía.</li>
+          <li>Calidad de vida.</li>
+        </ul>
+        <p class="pull">No entrenamos solamente para vernos fuertes. Entrenamos para seguir siendo capaces.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 y 8 · Perfiles -->
+  <section id="para-quien">
+    <div class="wrap">
+      <div class="stack" style="margin-bottom:40px">
+        <p class="eyebrow">Para quién es</p>
+        <h2>Dos perfiles. <span class="accent">Un mismo sistema.</span></h2>
+      </div>
+      <div class="duo">
+        <article class="profile">
+          <p class="eyebrow">Para atletas de endurance</p>
+          <h3 style="font-size:clamp(1.8rem,3vw,2.4rem)">Su motor necesita una estructura más fuerte.</h3>
+          <p>Si usted practica ciclismo, running, natación, triatlón o trail, TNT Muscle complementa su entrenamiento de resistencia. Una programación adecuada de fuerza puede ayudarle a desarrollar:</p>
+          <ul class="ticks">
+            <li>Mayor producción de potencia.</li>
+            <li>Mejor estabilidad.</li>
+            <li>Mayor tolerancia a las cargas deportivas.</li>
+            <li>Mejor control corporal.</li>
+            <li>Mayor capacidad para mantener la técnica bajo fatiga.</li>
+            <li>Más resiliencia frente a las lesiones.</li>
+          </ul>
+          <p class="muted">No queremos sustituir su deporte. Queremos construir el cuerpo que necesita para practicarlo mejor.</p>
+          <p class="sign">Corra. Pedalee. Nade. Más fuerte.</p>
+        </article>
+        <article class="profile">
+          <p class="eyebrow">Para profesionales y mayores de 35</p>
+          <h3 style="font-size:clamp(1.8rem,3vw,2.4rem)">Más fuerza para su vida.</h3>
+          <p>Si su agenda está llena, su entrenamiento necesita ser preciso. TNT Muscle es para personas que quieren entrenar seriamente, pero no desean perder tiempo esperando equipo, improvisando rutinas o participando en clases masivas.</p>
+          <p>En 50 minutos podrá completar una sesión estructurada y continuar con su día. La fuerza que desarrolla aquí se refleja fuera del gimnasio:</p>
+          <ul class="ticks">
+            <li>Mayor capacidad para trabajar y entrenar.</li>
+            <li>Más estabilidad y control corporal.</li>
+            <li>Conservación de masa muscular.</li>
+            <li>Mejor desempeño físico.</li>
+            <li>Mayor autonomía con el paso de los años.</li>
+          </ul>
+          <p class="sign">Su edad no determina su capacidad. Su preparación sí.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · Diferenciadores -->
+  <section id="beneficios">
+    <div class="wrap">
+      <div class="sys-head" style="margin-bottom:0">
+        <div class="stack">
+          <p class="eyebrow">Qué nos diferencia</p>
+          <h2>Una experiencia diseñada alrededor de su entrenamiento.</h2>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="cell"><h3>Exclusividad</h3><p>Máximo cinco personas por hora. Menos distracciones, menos espera y más espacio para entrenar.</p></div>
+        <div class="cell"><h3>Método propio</h3><p>Una programación estructurada alrededor del Sistema TNT 6·4·50.</p></div>
+        <div class="cell"><h3>Sesiones eficientes</h3><p>Entrenamientos diseñados para completarse en aproximadamente 50 minutos.</p></div>
+        <div class="cell"><h3>Programación semanal</h3><p>Cada domingo recibirá en la aplicación la programación correspondiente a la semana.</p></div>
+        <div class="cell"><h3>Libertad para elegir sus días</h3><p>La programación estará disponible de lunes a sábado. Usted podrá reservar los días que mejor se adapten a su agenda y a su plan.</p></div>
+        <div class="cell"><h3>Guiado e independiente</h3><p>Primero aprenderá la técnica y el funcionamiento del sistema en sesiones guiadas. Después podrá entrenar con mayor autonomía siguiendo la programación.</p></div>
+        <div class="cell"><h3>Acceso 24/7</h3><p>Ingreso mediante control biométrico, sujeto a activación, reserva y políticas del estudio.</p></div>
+        <div class="cell"><h3>Instalaciones premium</h3><p>Aire acondicionado, ducha con agua caliente, parqueo gratuito, seguridad y equipo especializado de fuerza.</p></div>
+        <div class="cell"><h3>Seguimiento de cargas</h3><p>Registre sus series y marcas en la aplicación y vea su progresión ciclo tras ciclo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · Cómo funciona -->
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="stack">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>Comenzar es muy sencillo.</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Cree su cuenta</h3><p>Ingrese a la aplicación de TNT Muscle y complete su información.</p></li>
+        <li><h3>Elija su plan</h3><p>Seleccione la modalidad que se adapte mejor a su frecuencia de entrenamiento.</p></li>
+        <li><h3>Realice el pago</h3><p>Active su membresía directamente desde la aplicación.</p></li>
+        <li><h3>Reserve su inducción</h3><p>Aprenda la técnica, el uso del equipo y el funcionamiento del Sistema TNT 6·4·50.</p></li>
+        <li><h3>Reserve sus sesiones</h3><p>Seleccione los días y las horas disponibles para entrenar.</p></li>
+        <li><h3>Active su acceso</h3><p>Una vez completado el proceso inicial, se habilitará su acceso biométrico al estudio.</p></li>
+      </ol>
+      <div class="help">
+        <a class="btn" href="#" data-link="app">Crear usuario, pagar y reservar <span class="arr">→</span></a>
+        <span class="muted">¿Necesita ayuda?</span>
+        <a class="btn ghost" href="#" data-link="whatsapp">Hablar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · Horarios -->
+  <section id="horarios">
+    <div class="wrap">
+      <div class="sys-head" style="margin-bottom:0">
+        <div class="stack">
+          <p class="eyebrow">Horarios</p>
+          <h2>Entrene según su agenda.</h2>
+        </div>
+        <p class="muted">Las sesiones guiadas están diseñadas para aprender los movimientos, recibir correcciones y desarrollar la capacidad necesaria para entrenar con autonomía.</p>
+      </div>
+      <div class="sched">
+        <div class="slot-card">
+          <span class="k">Acceso al estudio</span>
+          <h3>24 horas · 7 días</h3>
+          <p class="muted">Mediante reserva y acceso biométrico para miembros autorizados.</p>
+        </div>
+        <div class="slot-card">
+          <span class="k">Programación TNT</span>
+          <h3>Se publica cada domingo</h3>
+          <p class="muted">Disponible de lunes a sábado en la aplicación.</p>
+        </div>
+        <div class="slot-card">
+          <span class="k">Sesiones guiadas</span>
+          <h3>Lunes a viernes</h3>
+          <div class="times">
+            <span class="time"><b>Mañana</b>Hora 1 · Hora 2</span>
+            <span class="time"><b>Tarde</b>Hora 3 · Hora 4</span>
+          </div>
+          <h3 style="margin-top:6px">Sábado</h3>
+          <div class="times"><span class="time"><b>Mañana</b>Hora por confirmar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · Planes -->
+  <section id="planes">
+    <div class="wrap">
+      <div class="stack">
+        <p class="eyebrow">Planes</p>
+        <h2>Elija cómo quiere entrenar.</h2>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <h3>Plan TNT 3X</h3>
+          <div class="price"><strong>US$80</strong><span>mensuales</span></div>
+          <p class="muted">Para quienes desean complementar su deporte o iniciar un proceso de fuerza sostenible.</p>
+          <ul class="ticks">
+            <li>Hasta tres sesiones por semana.</li>
+            <li>Acceso a la programación TNT.</li>
+            <li>Uso de las instalaciones.</li>
+            <li>Reservas mediante la aplicación.</li>
+            <li>Acceso 24/7 después de completar la inducción.</li>
+            <li>Seguimiento de su progreso.</li>
+          </ul>
+          <a class="btn ghost" href="#" data-link="app">Elegir plan 3X</a>
+        </article>
+        <article class="plan pro">
+          <span class="tag">Mayor flexibilidad</span>
+          <h3>Plan TNT Unlimited</h3>
+          <div class="price"><strong>US$100</strong><span>mensuales</span></div>
+          <p class="muted">Para quienes desean mayor flexibilidad y frecuencia.</p>
+          <ul class="ticks">
+            <li>Sesiones ilimitadas.</li>
+            <li>Acceso a la programación TNT.</li>
+            <li>Uso de las instalaciones.</li>
+            <li>Reservas mediante la aplicación.</li>
+            <li>Acceso 24/7 después de completar la inducción.</li>
+            <li>Seguimiento de su progreso.</li>
+          </ul>
+          <a class="btn" href="#" data-link="app">Elegir plan Unlimited <span class="arr">→</span></a>
+        </article>
+      </div>
+      <p class="fine">Las reservas están sujetas a disponibilidad, capacidad y políticas de uso del estudio.</p>
+    </div>
+  </section>
+
+  <!-- 13 · Qué gana -->
+  <section id="valor">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Qué gana al entrenar aquí</p>
+        <h2>No está comprando solamente acceso a un gimnasio.</h2>
+      </div>
+      <div class="stack">
+        <p class="lead">Está invirtiendo en:</p>
+        <ul class="ticks cols-2">
+          <li>Una programación que elimina la improvisación.</li>
+          <li>Un método que se adapta a una agenda ocupada.</li>
+          <li>Un espacio sin multitudes.</li>
+          <li>Más fuerza para su deporte.</li>
+          <li>Más músculo y capacidad para su vida.</li>
+          <li>Seguimiento de sus cargas y resultados.</li>
+          <li>Libertad para entrenar a su hora.</li>
+          <li>Una comunidad de personas que entrena con propósito.</li>
+        </ul>
+        <p class="pull">En TNT Muscle usted no llega a decidir qué hacer. Llega a ejecutar un plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 · Fundadores -->
+  <section class="founders" id="fundadores">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">Membresía fundadores</p>
+        <h2>Sea parte del inicio de TNT Muscle.</h2>
+        <p>La capacidad del estudio es limitada para proteger la calidad de la experiencia.</p>
+      </div>
+      <div class="stack">
+        <p><b>Los primeros miembros podrán acceder a beneficios especiales de apertura:</b></p>
+        <ul class="ticks cols-2">
+          <li>Tarifa preferencial de lanzamiento.</li>
+          <li>Evaluación inicial.</li>
+          <li>Inducción al Sistema TNT 6·4·50.</li>
+          <li>Registro de marcas iniciales.</li>
+          <li>Acceso anticipado a la aplicación.</li>
+          <li>Prioridad en la selección de horarios.</li>
+        </ul>
+        <div>
+          <a class="btn" href="#" data-link="app">Quiero ser miembro fundador <span class="arr">→</span></a>
+          <small>Beneficios sujetos a disponibilidad y condiciones de lanzamiento.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 · Preguntas -->
+  <section id="preguntas">
+    <div class="wrap">
+      <div class="stack">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Lo que conviene saber antes de empezar.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>¿Necesito experiencia entrenando fuerza?</summary><div class="ans"><p>No. Antes de entrenar de manera independiente deberá completar una inducción para aprender los movimientos, el uso del equipo y las reglas del estudio.</p></div></details>
+        <details><summary>¿Puedo entrenar si practico running, ciclismo, natación o triatlón?</summary><div class="ans"><p>Sí. El sistema está diseñado para complementar la práctica de deportes de resistencia sin convertir la fuerza en otra actividad que consuma varias horas.</p></div></details>
+        <details><summary>¿Tengo que entrenar siempre los mismos días?</summary><div class="ans"><p>No. Usted podrá elegir y reservar sus días según la disponibilidad del estudio y las condiciones de su membresía.</p></div></details>
+        <details><summary>¿TNT Muscle es CrossFit?</summary><div class="ans"><p>No. TNT Muscle es un sistema de fuerza basado en progresión, técnica, control de cargas y seis patrones fundamentales.</p></div></details>
+        <details><summary>¿Es un gimnasio de fisicoculturismo?</summary><div class="ans"><p>No. Aunque el desarrollo muscular puede ser una consecuencia positiva, el objetivo principal es mejorar fuerza, potencia, capacidad física y autonomía.</p></div></details>
+        <details><summary>¿El entrenamiento aumenta la testosterona?</summary><div class="ans"><p>El entrenamiento de fuerza puede generar respuestas hormonales agudas y contribuir a la salud muscular y metabólica. Sin embargo, no se puede garantizar un aumento permanente de testosterona y el sistema no sustituye una evaluación o tratamiento médico.</p></div></details>
+        <details><summary>¿Cuántas personas pueden entrenar al mismo tiempo?</summary><div class="ans"><p>El estudio limita las reservas a un máximo de cinco personas por hora.</p></div></details>
+        <details><summary>¿Cómo ingreso al estudio?</summary><div class="ans"><p>Después de registrarse, pagar su membresía y completar la inducción, podrá activarse su acceso biométrico.</p></div></details>
+        <details><summary>¿Puedo entrenar durante la madrugada o muy temprano?</summary><div class="ans"><p>Sí. Los miembros autorizados tendrán acceso 24/7, sujeto a reserva previa y a las normas de seguridad del estudio.</p></div></details>
+        <details><summary>¿Dónde está ubicado?</summary><div class="ans"><p>TNT Muscle está ubicado en Lindora, con parqueo gratuito y seguridad.</p><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Lindora%2C%20Santa%20Ana%2C%20Costa%20Rica" target="_blank" rel="noopener">Ver ubicación</a></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 · Cierre -->
+  <section class="final" id="cierre">
+    <div class="wrap">
+      <h2>Su deporte exige resistencia.<br><span class="accent">Su vida exige fuerza.</span></h2>
+      <p class="lead" style="margin-top:28px">No necesita entrenar durante dos horas. Necesita un sistema, una programación y un lugar diseñado para avanzar.</p>
+      <div class="formula">
+        <span><b>6</b>movimientos</span>
+        <span><b>4</b>semanas por ciclo</span>
+        <span><b>50</b>minutos por sesión</span>
+      </div>
+      <div class="btns">
+        <a class="btn" href="#" data-link="app">Crear mi cuenta <span class="arr">→</span></a>
+        <a class="btn ghost" href="#" data-link="whatsapp">Hablar con TNT Muscle</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span><b style="color:var(--chalk)">TNT Muscle</b> · Fuerza con propósito</span>
+  <span>Lindora, Costa Rica · Acceso 24/7 · Máximo 5 personas por hora</span>
+</footer>
+
+<script>
+  // Enlaces pendientes: reemplace estos valores cuando tenga la app y el número de WhatsApp.
+  const LINKS = { app: "", whatsapp: "" };
+  document.querySelectorAll("[data-link]").forEach(a => {
+    const url = LINKS[a.dataset.link];
+    if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
+    else { a.href = a.dataset.link === "app" ? "#planes" : "#preguntas"; a.title = "Enlace pendiente de configurar"; }
+  });
+  document.querySelectorAll(".menu nav a").forEach(a => a.addEventListener("click", () => a.closest("details").open = false));
+</script>
