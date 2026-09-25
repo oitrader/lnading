@@ -262,16 +262,6 @@
   @media (max-width: 1080px) { .plans { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 900px) { .annual, .f-prices, .fee { grid-template-columns: 1fr; } }
   @media (max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } .pt-row b { font-size: 1.35rem; } .f-list li { flex-direction: column; gap: 6px; } }
-
-  .poster { display: block; width: 100%; max-width: 440px; height: auto; aspect-ratio: 1122 / 1402; object-fit: cover; border-radius: 6px; border: 1px solid var(--steel); background: var(--plate); }
-  .poster-r { justify-self: end; }
-  .hero-media { margin: 0; justify-self: end; width: 100%; max-width: 480px; }
-  .hero-media .poster { max-width: 100%; box-shadow: 0 30px 80px -30px rgba(255, 90, 31, .35); }
-  .split .poster { margin-top: 12px; max-width: 380px; }
-  .sys-head { align-items: center; }
-  .mini-sys { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 24px; font: 700 .95rem/1 var(--label); letter-spacing: .1em; text-transform: uppercase; }
-  .mini-sys b { font: 900 2.3rem/.8 var(--display); color: var(--tnt); margin-right: 8px; vertical-align: -4px; }
-  @media (max-width: 900px) { .poster-r, .hero-media { justify-self: start; } .hero-media { max-width: 440px; } }
 </style>
 
 <header class="nav">
@@ -310,11 +300,6 @@
         <p class="eyebrow">Estudio privado de fuerza · Lindora, Costa Rica</p>
         <h1 style="margin-top:18px">TNT <span class="accent">Muscle</span></h1>
         <p class="tagline">Fuerza con propósito.</p>
-        <div class="mini-sys" aria-label="Sistema TNT 6·4·50">
-          <span><b>6</b>movimientos fundamentales</span>
-          <span><b>4</b>semanas por ciclo</span>
-          <span><b>50</b>minutos por sesión</span>
-        </div>
         <p class="lead">Un estudio privado de entrenamiento de fuerza para personas que quieren rendir más, conservar su capacidad física y entrenar sin multitudes.</p>
         <ul class="perks">
           <li><b>Máx. 5</b> personas por hora</li>
@@ -330,7 +315,15 @@
         </div>
       </div>
 
-      <figure class="hero-media"><img class="poster" src="img/fuerza-con-proposito.webp" alt="Entrada del estudio TNT Muscle con racks de fuerza e iluminación naranja" width="1122" height="1402" decoding="async"></figure>
+      <aside class="system-card" aria-label="Sistema TNT 6·4·50">
+        <header>
+          <strong>Sistema TNT 6·4·50</strong>
+          <span class="eyebrow">Método propio</span>
+        </header>
+        <div class="num-row"><div class="num">6</div><div><b>Movimientos</b><span>fundamentales de fuerza.</span></div></div>
+        <div class="num-row"><div class="num">4</div><div><b>Semanas</b><span>por ciclo de progresión.</span></div></div>
+        <div class="num-row"><div class="num">50</div><div><b>Minutos</b><span>por sesión, de principio a fin.</span></div></div>
+      </aside>
     </div>
   </section>
 
@@ -356,7 +349,6 @@
       <div class="stack">
         <p class="eyebrow">Qué es TNT Muscle</p>
         <h2>No es un gimnasio tradicional.</h2>
-        <img class="poster" src="img/no-es-un-gimnasio-mas.webp" alt="Atleta preparando un peso muerto en una plataforma del estudio TNT Muscle" width="1122" height="1402" loading="lazy" decoding="async">
       </div>
       <div class="stack">
         <p class="lead">TNT Muscle es un estudio boutique especializado exclusivamente en fuerza.</p>
@@ -402,9 +394,8 @@
         <div class="stack">
           <p class="eyebrow">El sistema</p>
           <h2>¿Qué es el Sistema <span class="accent">TNT 6·4·50</span>?</h2>
-          <p class="muted">Una estructura simple de recordar y exigente de ejecutar. Los movimientos principales permanecen; las combinaciones, cargas y progresiones cambian.</p>
         </div>
-        <img class="poster poster-r" src="img/sistema-6-4-50.webp" alt="Sistema TNT 6·4·50: 6 patrones de fuerza, 4 semanas por ciclo, 50 minutos por sesión" width="1122" height="1402" loading="lazy" decoding="async">
+        <p class="muted">Una estructura simple de recordar y exigente de ejecutar. Los movimientos principales permanecen; las combinaciones, cargas y progresiones cambian.</p>
       </div>
 
       <div class="pillar">
@@ -498,13 +489,9 @@
   <!-- 7 y 8 · Perfiles -->
   <section id="para-quien">
     <div class="wrap">
-      <div class="sys-head">
-        <div class="stack">
-          <p class="eyebrow">Para quién es</p>
-          <h2>Dos perfiles. <span class="accent">Un mismo sistema.</span></h2>
-          <p class="muted">Para ciclistas, corredores, nadadores, triatletas y profesionales mayores de 35 que quieren más fuerza sin sacrificar su deporte ni su agenda.</p>
-        </div>
-        <img class="poster poster-r" src="img/fuerza-para-rendir-mas.webp" alt="Casco de ciclismo, tenis de running y barra con discos TNT Muscle" width="1122" height="1402" loading="lazy" decoding="async">
+      <div class="stack" style="margin-bottom:40px">
+        <p class="eyebrow">Para quién es</p>
+        <h2>Dos perfiles. <span class="accent">Un mismo sistema.</span></h2>
       </div>
       <div class="duo">
         <article class="profile">
@@ -623,13 +610,9 @@
   <!-- 12 · Planes -->
   <section id="planes">
     <div class="wrap">
-      <div class="sys-head" style="margin-bottom:0">
-        <div class="stack">
-          <p class="eyebrow">Planes</p>
-          <h2>Elija cómo quiere entrenar.</h2>
-          <p class="muted">Tres frecuencias, el mismo sistema. Pague mensual o ahorre dos mensualidades con el plan anual.</p>
-        </div>
-        <img class="poster poster-r" src="img/membresias.webp" alt="Membresías TNT Muscle: Base US$59, Performance US$79, Unlimited US$99 y plan anual" width="1122" height="1402" loading="lazy" decoding="async">
+      <div class="stack">
+        <p class="eyebrow">Planes</p>
+        <h2>Elija cómo quiere entrenar.</h2>
       </div>
       <div class="plans">
         <article class="plan">
