@@ -144,7 +144,7 @@
   .closer { font: 900 clamp(1.8rem, 4vw, 3rem)/1 var(--display); text-transform: uppercase; margin-top: 48px; }
 
   /* Tarjetas de beneficio */
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--steel); border: 1px solid var(--steel); border-radius: 6px; overflow: hidden; margin-top: 48px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--steel); border: 1px solid var(--steel); border-radius: 6px; overflow: hidden; margin-top: 48px; }
   .cell { background: var(--ink); padding: 28px 26px; display: flex; flex-direction: column; gap: 10px; }
   .cell h3 { font-size: 1.35rem; }
   .cell p { color: var(--ash); font-size: 1rem; }
@@ -214,19 +214,54 @@
   .ph { color: var(--ash); font-size: .8rem; letter-spacing: .04em; text-transform: none; font-family: var(--body); }
 
   @media (max-width: 900px) {
-    .hero-grid, .split, .sys-head, .duo, .plans { grid-template-columns: 1fr; }
-    .grid-3, .sched { grid-template-columns: 1fr 1fr; }
+    .hero-grid, .split, .sys-head, .duo { grid-template-columns: 1fr; }
+    .sched { grid-template-columns: 1fr 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .weeks { grid-template-columns: 1fr 1fr; }
     .pillar { grid-template-columns: 1fr; gap: 18px; }
   }
   @media (max-width: 600px) {
     body { font-size: 16px; }
-    .grid-3, .sched, .steps, .cols-2 { grid-template-columns: 1fr; }
+    .sched, .steps, .cols-2 { grid-template-columns: 1fr; }
     .moves { grid-template-columns: 1fr 1fr; }
     .bar div { font-size: .78rem; }
     .num-row { gap: 16px; padding: 16px 18px; }
   }
+
+  .plans { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  .plan .tag + h3 { margin-top: -6px; }
+  .annual { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; margin-top: 64px; padding: clamp(26px, 4vw, 44px); background: var(--plate); border: 1px solid var(--steel); border-radius: 6px; }
+  .annual > * { min-width: 0; }
+  .annual-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: .95; }
+  .price-table { display: grid; }
+  .pt-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--steel); align-items: baseline; font-variant-numeric: tabular-nums; }
+  .pt-row span:not(:first-child) { text-align: right; }
+  .pt-head { font: 700 .78rem/1 var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--ash); padding-top: 0; }
+  .pt-row .was { color: var(--ash); text-decoration: line-through; }
+  .pt-row b { font: 900 1.7rem/1 var(--display); color: var(--tnt); }
+  .pt-note { font-size: .82rem; color: var(--ash); margin-top: 12px; }
+  .fee { margin-top: 16px; padding: 22px 26px; border: 1px dashed var(--steel); border-radius: 6px; display: grid; grid-template-columns: 180px 1fr; gap: 20px; align-items: baseline; }
+  .fee p:last-child { max-width: none; }
+
+  .seats { display: flex; align-items: baseline; gap: 14px; margin-top: 8px; }
+  .seats-n { font: 900 clamp(5rem, 10vw, 8rem)/.8 var(--display); }
+  .seats-l { font: 700 1.1rem/1.1 var(--label); letter-spacing: .14em; text-transform: uppercase; }
+  .f-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; }
+  .f-col { background: rgba(18, 8, 4, .1); border: 1px solid rgba(18, 8, 4, .28); border-radius: 6px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .f-list { list-style: none; margin: 0; padding: 0; }
+  .f-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(18, 8, 4, .22); }
+  .f-list li:last-child { border-bottom: 0; }
+  .f-list strong { font: 900 1.9rem/1 var(--display); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .founders .f-list small { display: inline; margin-top: 0; font: 600 .85rem/1 var(--label); margin-left: 2px; opacity: .8; }
+  .deposit { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 32px; margin-top: 16px; padding: 26px; background: var(--on-tnt); color: var(--chalk); border-radius: 6px; }
+  .founders .deposit .btn { background: var(--tnt); color: var(--on-tnt); border-color: var(--tnt); }
+  .founders .deposit .btn:hover { background: var(--chalk); border-color: var(--chalk); }
+  .deposit-text { font-size: 1.12rem; max-width: 60ch; color: var(--chalk); }
+  .founders .deposit-text b { color: var(--tnt); }
+
+  @media (max-width: 1080px) { .plans { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 900px) { .annual, .f-prices, .fee { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } .pt-row b { font-size: 1.35rem; } .f-list li { flex-direction: column; gap: 6px; } }
 </style>
 
 <header class="nav">
@@ -507,10 +542,9 @@
         <div class="cell"><h3>Sesiones eficientes</h3><p>Entrenamientos diseñados para completarse en aproximadamente 50 minutos.</p></div>
         <div class="cell"><h3>Programación semanal</h3><p>Cada domingo recibirá en la aplicación la programación correspondiente a la semana.</p></div>
         <div class="cell"><h3>Libertad para elegir sus días</h3><p>La programación estará disponible de lunes a sábado. Usted podrá reservar los días que mejor se adapten a su agenda y a su plan.</p></div>
-        <div class="cell"><h3>Guiado e independiente</h3><p>Primero aprenderá la técnica y el funcionamiento del sistema en sesiones guiadas. Después podrá entrenar con mayor autonomía siguiendo la programación.</p></div>
+        <div class="cell"><h3>Entrenamiento guiado e independiente</h3><p>Primero aprenderá la técnica y el funcionamiento del sistema en sesiones guiadas. Después podrá entrenar con mayor autonomía siguiendo la programación.</p></div>
         <div class="cell"><h3>Acceso 24/7</h3><p>Ingreso mediante control biométrico, sujeto a activación, reserva y políticas del estudio.</p></div>
         <div class="cell"><h3>Instalaciones premium</h3><p>Aire acondicionado, ducha con agua caliente, parqueo gratuito, seguridad y equipo especializado de fuerza.</p></div>
-        <div class="cell"><h3>Seguimiento de cargas</h3><p>Registre sus series y marcas en la aplicación y vea su progresión ciclo tras ciclo.</p></div>
       </div>
     </div>
   </section>
@@ -582,36 +616,73 @@
       </div>
       <div class="plans">
         <article class="plan">
-          <h3>Plan TNT 3X</h3>
-          <div class="price"><strong>US$80</strong><span>mensuales</span></div>
-          <p class="muted">Para quienes desean complementar su deporte o iniciar un proceso de fuerza sostenible.</p>
+          <h3>TNT Base</h3>
+          <div class="price"><strong>US$59</strong><span>mensuales</span></div>
+          <p class="muted">Para quienes desean incorporar la fuerza a su semana con una frecuencia sostenible.</p>
           <ul class="ticks">
-            <li>Hasta tres sesiones por semana.</li>
+            <li><b>Hasta dos sesiones por semana.</b></li>
             <li>Acceso a la programación TNT.</li>
             <li>Uso de las instalaciones.</li>
             <li>Reservas mediante la aplicación.</li>
             <li>Acceso 24/7 después de completar la inducción.</li>
             <li>Seguimiento de su progreso.</li>
           </ul>
-          <a class="btn ghost" href="#" data-link="app">Elegir plan 3X</a>
+          <a class="btn ghost" href="#" data-link="app">Elegir plan Base</a>
         </article>
         <article class="plan pro">
-          <span class="tag">Mayor flexibilidad</span>
-          <h3>Plan TNT Unlimited</h3>
-          <div class="price"><strong>US$100</strong><span>mensuales</span></div>
-          <p class="muted">Para quienes desean mayor flexibilidad y frecuencia.</p>
+          <span class="tag">Plan recomendado</span>
+          <h3>TNT Performance</h3>
+          <div class="price"><strong>US$79</strong><span>mensuales</span></div>
+          <p class="muted">Para quienes quieren desarrollar fuerza con la frecuencia ideal del Sistema TNT 6·4·50.</p>
           <ul class="ticks">
-            <li>Sesiones ilimitadas.</li>
+            <li><b>Hasta tres sesiones por semana.</b></li>
             <li>Acceso a la programación TNT.</li>
             <li>Uso de las instalaciones.</li>
             <li>Reservas mediante la aplicación.</li>
             <li>Acceso 24/7 después de completar la inducción.</li>
             <li>Seguimiento de su progreso.</li>
           </ul>
-          <a class="btn" href="#" data-link="app">Elegir plan Unlimited <span class="arr">→</span></a>
+          <a class="btn" href="#" data-link="app">Elegir plan Performance <span class="arr">→</span></a>
+        </article>
+        <article class="plan">
+          <h3>TNT Unlimited</h3>
+          <div class="price"><strong>US$99</strong><span>mensuales</span></div>
+          <p class="muted">Para quienes desean mayor flexibilidad y frecuencia.</p>
+          <ul class="ticks">
+            <li><b>Sesiones ilimitadas.</b></li>
+            <li>Máximo una sesión reservada por día.</li>
+            <li>Acceso a la programación TNT.</li>
+            <li>Uso de las instalaciones.</li>
+            <li>Reservas mediante la aplicación.</li>
+            <li>Acceso 24/7 después de completar la inducción.</li>
+            <li>Seguimiento de su progreso.</li>
+          </ul>
+          <a class="btn ghost" href="#" data-link="app">Elegir plan Unlimited</a>
         </article>
       </div>
       <p class="fine">Las reservas están sujetas a disponibilidad, capacidad y políticas de uso del estudio.</p>
+
+      <div class="annual">
+        <div class="stack">
+          <p class="eyebrow">Planes anuales</p>
+          <h3 class="annual-title">Pague 10 meses. <span class="accent">Entrene 12.</span></h3>
+          <p>Al pagar su membresía anual por adelantado, recibe doce meses de acceso por el precio de diez.</p>
+          <p class="muted">El pago anual incluye la cuota anual correspondiente y representa un ahorro de dos mensualidades.</p>
+          <div><a class="btn" href="#" data-link="app">Elegir plan anual <span class="arr">→</span></a></div>
+        </div>
+        <div class="price-table" role="table" aria-label="Precios de los planes anuales">
+          <div class="pt-row pt-head" role="row"><span role="columnheader">Plan</span><span role="columnheader">Mensual × 12</span><span role="columnheader">Anual</span></div>
+          <div class="pt-row" role="row"><span role="cell">TNT Base</span><span role="cell" class="was">US$708</span><span role="cell"><b>US$590</b></span></div>
+          <div class="pt-row" role="row"><span role="cell">TNT Performance</span><span role="cell" class="was">US$948</span><span role="cell"><b>US$790</b></span></div>
+          <div class="pt-row" role="row"><span role="cell">TNT Unlimited</span><span role="cell" class="was">US$1.188</span><span role="cell"><b>US$990</b></span></div>
+          <p class="pt-note">Mensual × 12 no incluye la cuota anual de US$40.</p>
+        </div>
+      </div>
+
+      <div class="fee">
+        <p class="eyebrow">Cuota anual</p>
+        <p>Los planes mensuales tienen una cuota anual de <b>US$40</b>, destinada a tecnología, programación, acceso biométrico y mantenimiento del estudio. La cuota anual está incluida en los planes anuales prepagados. <b class="accent">Los primeros 40 miembros fundadores no pagarán esta cuota durante su primer año.</b></p>
+      </div>
     </div>
   </section>
 
@@ -641,27 +712,54 @@
 
   <!-- 14 · Fundadores -->
   <section class="founders" id="fundadores">
-    <div class="wrap split">
-      <div class="stack">
-        <p class="eyebrow">Membresía fundadores</p>
-        <h2>Sea parte del inicio de TNT Muscle.</h2>
-        <p>La capacidad del estudio es limitada para proteger la calidad de la experiencia.</p>
-      </div>
-      <div class="stack">
-        <p><b>Los primeros miembros podrán acceder a beneficios especiales de apertura:</b></p>
-        <ul class="ticks cols-2">
-          <li>Tarifa preferencial de lanzamiento.</li>
-          <li>Evaluación inicial.</li>
-          <li>Inducción al Sistema TNT 6·4·50.</li>
-          <li>Registro de marcas iniciales.</li>
-          <li>Acceso anticipado a la aplicación.</li>
-          <li>Prioridad en la selección de horarios.</li>
-        </ul>
-        <div>
-          <a class="btn" href="#" data-link="app">Quiero ser miembro fundador <span class="arr">→</span></a>
-          <small>Beneficios sujetos a disponibilidad y condiciones de lanzamiento.</small>
+    <div class="wrap">
+      <div class="split">
+        <div class="stack">
+          <p class="eyebrow">Membresía fundadores</p>
+          <h2>Solo 40 personas entrarán como fundadores.</h2>
+          <p>La capacidad del estudio es limitada para proteger la calidad de la experiencia.</p>
+          <div class="seats" aria-label="40 cupos de fundador">
+            <span class="seats-n">40</span><span class="seats-l">cupos de fundador</span>
+          </div>
+        </div>
+        <div class="stack">
+          <p><b>Los primeros 40 miembros podrán acceder a beneficios especiales de apertura:</b></p>
+          <ul class="ticks cols-2">
+            <li>Anualidad de US$40 gratis durante el primer año.</li>
+            <li>Precio de lanzamiento protegido durante 12 meses.</li>
+            <li>Evaluación inicial incluida.</li>
+            <li>Inducción al Sistema TNT 6·4·50.</li>
+            <li>Registro de marcas iniciales.</li>
+            <li>Acceso anticipado a la aplicación.</li>
+            <li>Prioridad en la selección de horarios.</li>
+          </ul>
         </div>
       </div>
+
+      <div class="f-prices">
+        <div class="f-col">
+          <p class="eyebrow">Precios de fundador</p>
+          <ul class="f-list">
+            <li><span><b>TNT Base</b> · dos sesiones por semana</span><strong>US$59<small>/mes</small></strong></li>
+            <li><span><b>TNT Performance</b> · tres sesiones por semana</span><strong>US$79<small>/mes</small></strong></li>
+            <li><span><b>TNT Unlimited</b> · acceso completo sujeto a reserva</span><strong>US$99<small>/mes</small></strong></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <p class="eyebrow">O pague 10 meses y entrene 12</p>
+          <ul class="f-list">
+            <li><span><b>TNT Base anual</b></span><strong>US$590</strong></li>
+            <li><span><b>TNT Performance anual</b></span><strong>US$790</strong></li>
+            <li><span><b>TNT Unlimited anual</b></span><strong>US$990</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="deposit">
+        <p class="deposit-text">Reserve su membresía fundadora con <b>US$25</b>. El monto se aplicará completamente a su primera mensualidad o al pago de su plan anual.</p>
+        <a class="btn" href="#" data-link="app">Quiero ser miembro fundador <span class="arr">→</span></a>
+      </div>
+      <small>La categoría de fundador termina al completarse 40 membresías. Los beneficios aplican durante el periodo indicado y están sujetos a las condiciones de reserva y uso del estudio.</small>
     </div>
   </section>
 
@@ -680,6 +778,9 @@
         <details><summary>¿Es un gimnasio de fisicoculturismo?</summary><div class="ans"><p>No. Aunque el desarrollo muscular puede ser una consecuencia positiva, el objetivo principal es mejorar fuerza, potencia, capacidad física y autonomía.</p></div></details>
         <details><summary>¿El entrenamiento aumenta la testosterona?</summary><div class="ans"><p>El entrenamiento de fuerza puede generar respuestas hormonales agudas y contribuir a la salud muscular y metabólica. Sin embargo, no se puede garantizar un aumento permanente de testosterona y el sistema no sustituye una evaluación o tratamiento médico.</p></div></details>
         <details><summary>¿Cuántas personas pueden entrenar al mismo tiempo?</summary><div class="ans"><p>El estudio limita las reservas a un máximo de cinco personas por hora.</p></div></details>
+        <details><summary>¿Cuánto cuestan las membresías?</summary><div class="ans"><p>TNT Base cuesta US$59 mensuales e incluye hasta dos sesiones por semana. TNT Performance cuesta US$79 mensuales e incluye hasta tres sesiones por semana. TNT Unlimited cuesta US$99 mensuales y ofrece acceso completo sujeto a reserva, disponibilidad y políticas de uso.</p></div></details>
+        <details><summary>¿Existe una opción anual?</summary><div class="ans"><p>Sí. Los planes anuales permiten entrenar doce meses pagando solamente diez: TNT Base por US$590, TNT Performance por US$790 y TNT Unlimited por US$990. La cuota anual está incluida.</p></div></details>
+        <details><summary>¿Qué es la cuota anual?</summary><div class="ans"><p>Los planes mensuales tienen una cuota anual de US$40 destinada a tecnología, programación, acceso biométrico y mantenimiento del estudio. Los primeros 40 miembros fundadores no la pagarán durante su primer año.</p></div></details>
         <details><summary>¿Cómo ingreso al estudio?</summary><div class="ans"><p>Después de registrarse, pagar su membresía y completar la inducción, podrá activarse su acceso biométrico.</p></div></details>
         <details><summary>¿Puedo entrenar durante la madrugada o muy temprano?</summary><div class="ans"><p>Sí. Los miembros autorizados tendrán acceso 24/7, sujeto a reserva previa y a las normas de seguridad del estudio.</p></div></details>
         <details><summary>¿Dónde está ubicado?</summary><div class="ans"><p>TNT Muscle está ubicado en Lindora, con parqueo gratuito y seguridad.</p><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Lindora%2C%20Santa%20Ana%2C%20Costa%20Rica" target="_blank" rel="noopener">Ver ubicación</a></div></details>
